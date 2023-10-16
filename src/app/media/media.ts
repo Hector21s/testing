@@ -1,9 +1,10 @@
-export function mean(numbers: Array<number>, ){
-    let mean=numbers, summation=0;
-
-    for(let i=0; i < numbers.length; i++ ) {
-        summation = summation + mean[i];
+export function desviacion(array:number[]) {
+    var total=0, result, numDatos, item;
+    numDatos = array.length;
+    for (item = 0; item < numDatos; item++){
+        total += array[item];
     }
-    summation = Math.round((summation/ mean.length)* 100) /100;
-    return summation;
+    result = total/numDatos;
+
+    return result;
 }

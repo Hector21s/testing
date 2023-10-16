@@ -1,16 +1,26 @@
-export function standardDeviation(numbers: Array<number>){
-    let summation=0, summation2=0, summation3=0, standardDeviation=0, mean=0;
+import { desviacion } from "../media/media";
 
-    numbers.forEach(function(item, i){
-        summation += item;
-        if(numbers.length == i+1){
-            mean=summation/numbers.length
-            numbers.forEach(function(item){
-                summation3=(item-mean)**2
-                summation2+=summation3
-            })
-            standardDeviation=Math.sqrt(summation2/numbers.length)
-        }
-    })
-    return standardDeviation;
+
+
+export function estandar(array:number[]) {
+    let result= desviacion(array);
+    let desviacione: number;
+    let varianza=0;
+    let sumatoria:number;
+    let n=array.length;
+    for (let i=0; i<n; i++){
+        sumatoria=Math.pow(array[i]- result, 2);
+        varianza= varianza + sumatoria;
+        
+    }
+    varianza=varianza/(n-1);
+
+    desviacione= Math.sqrt(varianza);
+
+    var redondeo= Math.round((desviacione+Number.EPSILON)*100)/100;
+    
+
+
+    return redondeo;
+
 }
